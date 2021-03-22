@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/leafo/lessphp.svg?branch=master)](https://travis-ci.org/leafo/lessphp)
 
-# lessphp v0.5.1-cm
+# lessphp v0.5.2-cm
 ### <http://leafo.net/lessphp>
 
 `lessphp` is a compiler for LESS written in PHP. The documentation is great,
