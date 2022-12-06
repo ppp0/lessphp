@@ -43,7 +43,7 @@ class easyparse {
 
     public function match($regex, &$out, $eatWhitespace = true) {
         $r = '/'.$regex.($eatWhitespace ? '\s*' : '').'/Ais';
-        if (preg_match($r, $this->buffer, $out, null, $this->count)) {
+        if (preg_match($r, $this->buffer, $out, 0, $this->count)) {
             $this->count += strlen($out[0]);
             return true;
         }
