@@ -3283,7 +3283,10 @@ class lessc_parser {
                 if ($this->string($str)) {
                     // escape parent selector, (yuck)
                     foreach ($str[2] as &$chunk) {
-                        $chunk = str_replace($this->lessc->parentSelector, "$&$", $chunk);
+                        if (is_array($chunk)) {
+                            continue;
+                        }
+                        $chunk = str_replace($this->lessc->parentSelector, '$&$', $chunk);
                     }
 
                     $attrParts[] = $str;
