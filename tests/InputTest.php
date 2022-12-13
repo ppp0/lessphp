@@ -13,16 +13,16 @@ function _quote($str) {
 }
 
 class InputTest extends PHPUnit\Framework\TestCase {
-    protected static $importDirs = array("inputs/test-imports");
+    protected static $importDirs = ["inputs/test-imports"];
 
-    protected static $testDirs = array(
-        "inputs" => "outputs",
+    protected static $testDirs = [
+        "inputs"        => "outputs",
         "inputs_lessjs" => "outputs_lessjs",
-    );
+    ];
 
-    public function setUp() {
+    public function setUp(): void {
         $this->less = new lessc();
-        $this->less->importDir = array_map(function($path) {
+        $this->less->importDir = array_map(function ($path) {
             return __DIR__ . "/" . $path;
         }, self::$importDirs);
     }
@@ -38,7 +38,7 @@ class InputTest extends PHPUnit\Framework\TestCase {
         $outFname = self::outputNameFor($inFname);
 
         if (!is_readable($outFname)) {
-            $this->fail("$outFname is missing, ".
+            $this->fail("$outFname is missing, " .
                 "consider building tests with BUILD=true");
         }
 
@@ -49,8 +49,7 @@ class InputTest extends PHPUnit\Framework\TestCase {
     }
 
     public function fileNameProvider() {
-        return array_map(
-            function($a) { return array($a); },
+        return array_map(fn($a) => [$a],
             self::findInputNames()
         );
     }
@@ -61,8 +60,8 @@ class InputTest extends PHPUnit\Framework\TestCase {
         file_put_contents(self::outputNameFor($inFname), $css);
     }
 
-    public static function findInputNames($pattern="*.less") {
-        $files = array();
+    public static function findInputNames($pattern = "*.less") {
+        $files = [];
         foreach (self::$testDirs as $inputDir => $outputDir) {
             $files = array_merge($files, glob(__DIR__ . "/" . $inputDir . "/" . $pattern));
         }
