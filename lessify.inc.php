@@ -69,8 +69,8 @@ class easyparse {
 }
 
 class tagparse extends easyparse {
-    static private $combinators = null;
-    static private $match_opts = null;
+    private static $combinators = null;
+    private static $match_opts = null;
 
     public function parse() {
         if (empty(self::$combinators)) {
