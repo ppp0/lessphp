@@ -20,7 +20,7 @@ class InputTest extends PHPUnit\Framework\TestCase {
         "inputs_lessjs" => "outputs_lessjs",
     );
 
-    public function setUp() {
+    public function setUp(): void {
         $this->less = new lessc();
         $this->less->importDir = array_map(function($path) {
             return __DIR__ . "/" . $path;
@@ -49,8 +49,7 @@ class InputTest extends PHPUnit\Framework\TestCase {
     }
 
     public function fileNameProvider() {
-        return array_map(
-            function($a) { return array($a); },
+        return array_map(fn($a) => [$a],
             self::findInputNames()
         );
     }
