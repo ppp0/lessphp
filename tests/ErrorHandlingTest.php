@@ -2,6 +2,8 @@
 require_once __DIR__ . "/../lessc.inc.php";
 
 class ErrorHandlingTest extends PHPUnit\Framework\TestCase {
+    public $less;
+
     public function setUp(): void {
         $this->less = new lessc();
     }
