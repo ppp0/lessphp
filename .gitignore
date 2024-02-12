@@ -7,3 +7,4 @@ tests/bootstrap
 tests/tmp
 vendor
 composer.lock
+.phpunit.result.cache
