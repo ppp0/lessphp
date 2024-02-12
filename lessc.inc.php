@@ -69,7 +69,7 @@ class lessc {
 
     public $scope;
     public $env;
-    public $_parseFile;
+    public $parseFile;
     public $parser;
     public $formatter;
     public $formatterName;
@@ -2040,7 +2040,7 @@ class lessc {
     public function __construct($fname = null) {
         if ($fname !== null) {
             // used for deprecated parse method
-            $this->_parseFile = $fname;
+            $this->parseFile = $fname;
         }
     }
 
@@ -2181,11 +2181,11 @@ class lessc {
         }
 
         if ($str == null) {
-            if (empty($this->_parseFile)) {
+            if (empty($this->parseFile)) {
                 throw new exception("nothing to parse");
             }
 
-            $out = $this->compileFile($this->_parseFile);
+            $out = $this->compileFile($this->parseFile);
         } else {
             $out = $this->compile($str);
         }
